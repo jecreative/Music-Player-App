@@ -1,4 +1,4 @@
-# Music Playing App
+# Music Player App
 
 - Music playing app built taking The Creative React and Redux Course by developedbyed
 
