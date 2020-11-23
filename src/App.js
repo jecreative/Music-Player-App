@@ -7,6 +7,7 @@ import Player from './components/Player'
 import Song from './components/Song'
 import Library from './components/Library'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 //* Data
 import data from './data'
 
@@ -49,36 +50,42 @@ function App() {
   }
 
   return (
-    <div className={`App ${libraryStatus ? 'library-active' : ''}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
-      <Player
-        audioRef={audioRef}
-        setIsPlaying={setIsPlaying}
-        isPlaying={isPlaying}
-        setCurrentSong={setCurrentSong}
-        currentSong={currentSong}
-        setSongInfo={setSongInfo}
-        songInfo={songInfo}
-        setSongs={setSongs}
-        songs={songs}
-      />
-      <Library
-        songs={songs}
-        setCurrentSong={setCurrentSong}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setSongs={setSongs}
-        libraryStatus={libraryStatus}
-      />
-      <audio
-        onTimeUpdate={timeUpdateHandler}
-        onLoadedMetadata={timeUpdateHandler}
-        ref={audioRef}
-        src={currentSong.audio}
-        onEnded={songEndHandler}
-      ></audio>
-    </div>
+    <>
+      <div className={`App ${libraryStatus ? 'library-active' : ''}`}>
+        <Nav
+          libraryStatus={libraryStatus}
+          setLibraryStatus={setLibraryStatus}
+        />
+        <Song currentSong={currentSong} songInfo={songInfo} />
+        <Player
+          audioRef={audioRef}
+          setIsPlaying={setIsPlaying}
+          isPlaying={isPlaying}
+          setCurrentSong={setCurrentSong}
+          currentSong={currentSong}
+          setSongInfo={setSongInfo}
+          songInfo={songInfo}
+          setSongs={setSongs}
+          songs={songs}
+        />
+        <Library
+          songs={songs}
+          setCurrentSong={setCurrentSong}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          setSongs={setSongs}
+          libraryStatus={libraryStatus}
+        />
+        <audio
+          onTimeUpdate={timeUpdateHandler}
+          onLoadedMetadata={timeUpdateHandler}
+          ref={audioRef}
+          src={currentSong.audio}
+          onEnded={songEndHandler}
+        ></audio>
+        <Footer />
+      </div>
+    </>
   )
 }
 
