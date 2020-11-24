@@ -10,6 +10,8 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 //* Data
 import data from './data'
+//* Helper Function
+import { shuffle } from './randomizer'
 
 function App() {
   //* Refs
@@ -25,6 +27,7 @@ function App() {
     animationPercentage: 0,
   })
   const [libraryStatus, setLibraryStatus] = useState(false)
+  const [shuffledSongs, setShuffledSongs] = useState(shuffle(data()))
 
   //* Event handlers
   const timeUpdateHandler = (e) => {
@@ -55,6 +58,13 @@ function App() {
         <Nav
           libraryStatus={libraryStatus}
           setLibraryStatus={setLibraryStatus}
+          setCurrentSong={setCurrentSong}
+          shuffledSongs={shuffledSongs}
+          setShuffledSongs={setShuffledSongs}
+          data={data}
+          setIsPlaying={setIsPlaying}
+          isPlaying={isPlaying}
+          audioRef={audioRef}
         />
         <Song currentSong={currentSong} songInfo={songInfo} />
         <Player
