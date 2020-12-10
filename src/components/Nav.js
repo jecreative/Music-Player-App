@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic, faRandom } from '@fortawesome/free-solid-svg-icons'
-import data from '../data'
 //* Helper Function
 import { shuffle } from '../randomizer'
 
