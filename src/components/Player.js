@@ -22,7 +22,7 @@ const Player = ({
   songs,
   setSongs,
 }) => {
-  const [volume, setVolume] = useState(60)
+  const [volume, setVolume] = useState(40)
   const [isMuted, setIsMuted] = useState(false)
   const [prevVolumeValue, setPrevVolumeValue] = useState(volume)
   //* Event Handlers
@@ -80,7 +80,7 @@ const Player = ({
 
   const onVolumeClickHandler = () => {
     if (isMuted) {
-      audioRef.current.volume = prevVolumeValue / 100
+      audioRef.current.volume = prevVolumeValue / 200
       setVolume(prevVolumeValue)
       setIsMuted(false)
     } else {
